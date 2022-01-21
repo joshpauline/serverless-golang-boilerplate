@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sls offline",
     "deploy:env": "sls deploy --force --stage $NODE_ENV",
     "deploy": "export NODE_ENV=dev && yarn deploy:env",
     "deploy:prod": "export NODE_ENV=prod && yarn deploy:env",

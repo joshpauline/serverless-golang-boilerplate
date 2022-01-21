@@ -5,6 +5,8 @@ config: &config
 
 stages:
   dev:
+    <<: *config
+    STAGE: 'DEV'
 
   staging:
     <<: *config

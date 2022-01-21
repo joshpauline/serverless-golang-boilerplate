@@ -23,6 +23,9 @@ package:
   include:
     - ./bin/**
 
+plugins:
+  - serverless-offline
+
 functions:
   helloWorld:
     handler: bin/hello-world
