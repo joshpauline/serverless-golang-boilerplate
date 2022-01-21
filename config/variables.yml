@@ -1,0 +1,15 @@
+currentSettings: ${self:custom.environment.stages.${self:provider.stage}}
+
+config: &config
+  TEST: TEST
+
+stages:
+  dev:
+
+  staging:
+    <<: *config
+    STAGE: 'STAGING'
+
+  prod: &prod
+    <<: *config
+    STAGE: 'PROD'

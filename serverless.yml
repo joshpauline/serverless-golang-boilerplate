@@ -1,0 +1,33 @@
+service: golang-boilerplate
+
+provider:
+  name: aws
+  runtime: go1.x
+  stage: ${opt:stage, "dev"}
+  region: ${opt:region, "ap-southeast-2"}
+  environment: ${self:custom.environment.currentSettings}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - '*'
+      Resource: '*'
+  lambdaHashingVersion: '20201221'
+
+custom:
+  environment: ${file(config/variables.yml)}
+
+package:
+  individually: true
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  helloWorld:
+    handler: bin/hello-world
+    events:
+      - http:
+          path: hello-world
+          method: get
+          cors: true
