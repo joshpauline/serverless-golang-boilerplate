@@ -18,6 +18,12 @@ Local Invocation
 yarn start
 ```
 
+Build
+
+```bash
+make
+```
+
 Deploy
 
 ```bash
